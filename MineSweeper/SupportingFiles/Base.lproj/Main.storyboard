@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Jh-BB-bVc">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="MineSweeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lno-x1-tmG">
+                                <rect key="frame" x="20" y="288" width="374" height="374"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="HoS-tj-snh"/>
+                                    <constraint firstAttribute="height" constant="374" id="ihg-HV-I9t"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9FW-C0-bxE">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Custom" id="xAV-jA-Tzf" customClass="TileCollectionViewCell" customModule="MineSweeper" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TileMineSweeper" translatesAutoresizingMaskIntoConstraints="NO" id="AW6-ZP-YfW" userLabel="TileImage">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="💣" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="Wzr-B9-tZs">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="AW6-ZP-YfW" secondAttribute="trailing" id="2KQ-Z1-IKZ"/>
+                                            <constraint firstItem="Wzr-B9-tZs" firstAttribute="leading" secondItem="xAV-jA-Tzf" secondAttribute="leading" id="4hh-jF-aDS"/>
+                                            <constraint firstAttribute="bottom" secondItem="AW6-ZP-YfW" secondAttribute="bottom" id="7Ym-FR-fO8"/>
+                                            <constraint firstAttribute="bottom" secondItem="Wzr-B9-tZs" secondAttribute="bottom" id="Hmz-kF-9Fc"/>
+                                            <constraint firstAttribute="trailing" secondItem="Wzr-B9-tZs" secondAttribute="trailing" id="Pgt-lU-5bQ"/>
+                                            <constraint firstItem="AW6-ZP-YfW" firstAttribute="leading" secondItem="xAV-jA-Tzf" secondAttribute="leading" id="R7r-bu-fTO"/>
+                                            <constraint firstItem="Wzr-B9-tZs" firstAttribute="top" secondItem="xAV-jA-Tzf" secondAttribute="top" id="kV0-EU-qx2"/>
+                                            <constraint firstItem="AW6-ZP-YfW" firstAttribute="top" secondItem="xAV-jA-Tzf" secondAttribute="top" id="xcI-XL-ZEJ"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="tileDisplayText" destination="Wzr-B9-tZs" id="TV6-oR-hPw"/>
+                                            <outlet property="tileImage" destination="AW6-ZP-YfW" id="X7c-0d-75a"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="DLa-OX-xUi"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="PlA-qP-qfo"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lno-x1-tmG" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="SYo-fD-e2b"/>
+                            <constraint firstItem="lno-x1-tmG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="eVA-ac-ygj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="lno-x1-tmG" id="FK4-0i-ELS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2123.1884057971015" y="142.63392857142856"/>
+        </scene>
+        <!--Grid Selection View Controller-->
+        <scene sceneID="tqZ-RB-f0U">
+            <objects>
+                <viewController id="5fx-Qs-kwK" customClass="GridSelectionViewController" customModule="MineSweeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zqg-TR-NOV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXi-fb-Fau">
+                                <rect key="frame" x="172" y="523" width="70" height="90"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="65"/>
+                                <state key="normal" title="➡️">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Ezr-zB-7zV" kind="show" id="HFK-i8-6di"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Grid Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKR-Y7-3TA">
+                                <rect key="frame" x="89" y="288" width="236" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Myh-rp-PTe">
+                                <rect key="frame" x="181" y="372" width="52" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="7" minValue="4" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="fWP-Uu-SqW">
+                                <rect key="frame" x="49.5" y="460" width="315" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="311" id="yfG-6H-88x"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="gridSizeValueChanged:" destination="5fx-Qs-kwK" eventType="valueChanged" id="zDW-4n-Fta"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🔳" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Em-Zj-fSe">
+                                <rect key="frame" x="174.5" y="183" width="65" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fWP-Uu-SqW" firstAttribute="top" secondItem="CKR-Y7-3TA" secondAttribute="bottom" constant="130" id="8df-x9-S1x"/>
+                            <constraint firstItem="fWP-Uu-SqW" firstAttribute="top" secondItem="Myh-rp-PTe" secondAttribute="bottom" constant="40" id="9h7-IK-Veq"/>
+                            <constraint firstItem="Myh-rp-PTe" firstAttribute="centerX" secondItem="S7s-ze-fCH" secondAttribute="centerX" id="Ea8-aE-FqW"/>
+                            <constraint firstItem="pXi-fb-Fau" firstAttribute="centerX" secondItem="S7s-ze-fCH" secondAttribute="centerX" id="Htw-jO-b7k"/>
+                            <constraint firstItem="fWP-Uu-SqW" firstAttribute="centerX" secondItem="S7s-ze-fCH" secondAttribute="centerX" id="Vga-17-jdi"/>
+                            <constraint firstItem="CKR-Y7-3TA" firstAttribute="centerX" secondItem="S7s-ze-fCH" secondAttribute="centerX" id="cDu-hm-5D5"/>
+                            <constraint firstItem="fWP-Uu-SqW" firstAttribute="centerY" secondItem="S7s-ze-fCH" secondAttribute="centerY" id="kMV-gd-F7R"/>
+                            <constraint firstItem="9Em-Zj-fSe" firstAttribute="centerX" secondItem="S7s-ze-fCH" secondAttribute="centerX" id="tn3-ye-yCI"/>
+                            <constraint firstItem="CKR-Y7-3TA" firstAttribute="top" secondItem="9Em-Zj-fSe" secondAttribute="bottom" constant="33" id="tv0-ZT-Qs7"/>
+                            <constraint firstItem="pXi-fb-Fau" firstAttribute="top" secondItem="fWP-Uu-SqW" secondAttribute="bottom" constant="33" id="ux3-9S-KDy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="S7s-ze-fCH"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OZx-Ap-zZ7"/>
+                    <connections>
+                        <outlet property="gridSizeLabel" destination="Myh-rp-PTe" id="gET-c4-jgC"/>
+                        <outlet property="gridSlider" destination="fWP-Uu-SqW" id="Tcx-lH-RnH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8EG-EH-Fmk" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="328.98550724637681" y="142.63392857142856"/>
+        </scene>
+        <!--Mine Selection View Controller-->
+        <scene sceneID="ykc-BS-qRL">
+            <objects>
+                <viewController id="Ezr-zB-7zV" customClass="MineSelectionViewController" customModule="MineSweeper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="59M-aV-a97">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLc-yp-hpS">
+                                <rect key="frame" x="172" y="523" width="70" height="90"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="65"/>
+                                <state key="normal" title="➡️">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="pQh-Dr-JI5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How Many Mines?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DA7-Wt-Ci0">
+                                <rect key="frame" x="69" y="288" width="276" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnr-12-D11">
+                                <rect key="frame" x="181" y="372" width="52" height="48"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="7" minValue="4" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="WIU-Bn-etI">
+                                <rect key="frame" x="49.5" y="460" width="315" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="311" id="l3i-Fo-5fw"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="mineSliderChanged:" destination="Ezr-zB-7zV" eventType="valueChanged" id="adK-RP-Pkg"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="💣" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYx-Y9-RgM">
+                                <rect key="frame" x="174.5" y="183" width="65" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DA7-Wt-Ci0" firstAttribute="centerX" secondItem="dNm-oj-QFM" secondAttribute="centerX" id="1G1-Z9-dff"/>
+                            <constraint firstItem="qLc-yp-hpS" firstAttribute="centerX" secondItem="dNm-oj-QFM" secondAttribute="centerX" id="4jC-sB-Nij"/>
+                            <constraint firstItem="qLc-yp-hpS" firstAttribute="top" secondItem="WIU-Bn-etI" secondAttribute="bottom" constant="33" id="7Mn-Ef-4Es"/>
+                            <constraint firstItem="Gnr-12-D11" firstAttribute="centerX" secondItem="dNm-oj-QFM" secondAttribute="centerX" id="JPf-zu-TPV"/>
+                            <constraint firstItem="FYx-Y9-RgM" firstAttribute="centerX" secondItem="dNm-oj-QFM" secondAttribute="centerX" id="X4x-4W-2aZ"/>
+                            <constraint firstItem="WIU-Bn-etI" firstAttribute="top" secondItem="DA7-Wt-Ci0" secondAttribute="bottom" constant="130" id="XeG-Ve-db1"/>
+                            <constraint firstItem="WIU-Bn-etI" firstAttribute="centerX" secondItem="dNm-oj-QFM" secondAttribute="centerX" id="rGa-uX-WF4"/>
+                            <constraint firstItem="WIU-Bn-etI" firstAttribute="top" secondItem="Gnr-12-D11" secondAttribute="bottom" constant="40" id="rTJ-Q2-h6h"/>
+                            <constraint firstItem="WIU-Bn-etI" firstAttribute="centerY" secondItem="dNm-oj-QFM" secondAttribute="centerY" id="rdW-8n-X4Q"/>
+                            <constraint firstItem="DA7-Wt-Ci0" firstAttribute="top" secondItem="FYx-Y9-RgM" secondAttribute="bottom" constant="33" id="yZV-ui-k6G"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dNm-oj-QFM"/>
+                    </view>
+                    <connections>
+                        <outlet property="mineSlider" destination="WIU-Bn-etI" id="XOv-MS-A5S"/>
+                        <outlet property="mines" destination="Gnr-12-D11" id="e3k-fa-I6t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="usw-nj-R0T" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1205.7971014492755" y="142.63392857142856"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ddh-uI-6VP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Jh-BB-bVc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hdr-ZT-q01">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5fx-Qs-kwK" kind="relationship" relationship="rootViewController" id="dEa-jy-kie"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mBD-nu-H40" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-581.15942028985512" y="142.63392857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="TileMineSweeper" width="218" height="220"/>
+    </resources>
+</document>
